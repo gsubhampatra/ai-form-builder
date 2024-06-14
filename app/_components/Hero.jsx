@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -18,18 +19,18 @@ const Hero = () => {
               with Cutting-Edge AI Technology"
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <a
+              <Link
                 className="block w-full px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded bg-gradient-to-r from-blue-500 to-purple-600 hover:bg-none hover:text-white focus:outline-none focus:ring active:text-opacity-75 hover:shadow-md hover:shadow-purple-600 sm:w-auto"
-                href="#"
+                href="/dashboard"
               >
                 Create Form
-              </a>
-              <a
+              </Link>
+              <Link
                 className="block w-full px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                href="#"
+                href="/about"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
         </div>
