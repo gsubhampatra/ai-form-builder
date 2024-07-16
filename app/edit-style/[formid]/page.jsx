@@ -10,6 +10,7 @@ import FormUI from "../_components/FormUI";
 import { toast } from "sonner";
 import Controller from "../_components/Controller";
 import Link from "next/link";
+import AddField from "../_components/AddField";
 
 const EditForm = ({ params }) => {
   const { user } = useUser();
@@ -72,6 +73,11 @@ const EditForm = ({ params }) => {
 
   }
 
+  const onAddField = (newField) => {
+    JsonForm.fields.push(newField);
+    setUpdatetrigger(Date.now());
+  };
+
   const updateJsonFormInDB = async () => {
 
     try {
@@ -129,7 +135,7 @@ const EditForm = ({ params }) => {
             <Link href={'/aiform/' + record?.id} target="_blank" >
               <button className="border-2 shadow-lg shadow-sky-200 btn-outline btn btn-info" > <SquareArrowOutUpRight /> Live preview</button>
             </Link>
-            <button onClick={ () => {
+            <button onClick={() => {
               if (navigator.share) {
                 navigator.share({
                   url: window.location.pathname
@@ -158,6 +164,8 @@ const EditForm = ({ params }) => {
               saveChanges={saveChanges}
               setSelectStyle={(value) => setSelectStyle(value)}
             />
+            <AddField onAddField={onAddField} />
+
           </div>
           <div className="flex items-center justify-center p-5 border rounded-lg md:col-span-2 "
             style={{ backgroundImage: selectedBackground }}
